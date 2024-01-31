@@ -66,16 +66,5 @@ moon.onclick = function(){
     }
 }
 
-let hImg = document.querySelector('.h-img img'); // select the image element with class 'h-img'
 
-hImg.addEventListener('click', () => { // when the image is clicked
-    hImg.style.transition = 'transform 0.3s'; // Add CSS transition property to make the image transition smooth
-    hImg.style.transform = 'scale(1.2)'; // zoom out the image by scaling it to 0.1 times its original size
-    
-});
 
-hImg.addEventListener('transitionend', () => { // when the transition ends
-    hImg.style.transition = 'none'; // remove the transition property
-    hImg.style.transform = 'scale(1)'; // reset the image scale to its original size
-   
-});
