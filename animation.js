@@ -7,8 +7,6 @@ menu.onclick = () =>{ // when the menu icon is clicked
     nbar.classList.toggle('click'); // toggle the class "click" for the .navbar which will show the navbar
 };
 
-
-
 let sections = document.querySelectorAll('section'); // select all sections
 let navlinks = document.querySelectorAll('header nav a'); // select all links in the navbar
 
@@ -52,50 +50,32 @@ moon = document.getElementById('moon');
 moon.onclick = function(){
     document.body.classList.toggle('dark-theme');
     moon.style.color = '#e3f3eb';
-    // menu.style.color = '#e3f3eb';
+  
     if(document.body.classList.contains('dark-theme')){
         moon.classList.remove('bx-moon');
         moon.classList.add('bx-sun');
-        // document.querySelector('.h-img img').src = 'img/homepic2.png'; // Change h-img source back to 'img/homepic (2).png'
-
-
-}
+        document.querySelector('.h-img img').src = 'upp.png'; // Change h-img source to 'upp.png'
+        document.querySelector('.h-img img').style.filter = 'invert(10%)'; // Apply image filter to invert the colors
+        document.querySelector('.h-img img').style.filter = 'brightness(1)'; // Apply image filter to reduce brightness
+    }
     else{
         moon.classList.remove('bx-sun');
         moon.classList.add('bx-moon');
-        // document.querySelector('.h-img img').src = 'img/homepic (2).png'; // Change h-img source back to 'img/homepic (2).png'
-
-        
+        document.querySelector('.h-img img').src = 'homepic (2).png'; // Change h-img source back to 'homepic (2).png'
+        document.querySelector('.h-img img').style.filter = 'none'; // Remove image filter
     }
 }
 
+let hImg = document.querySelector('.h-img img'); // select the image element with class 'h-img'
 
+hImg.addEventListener('click', () => { // when the image is clicked
+    hImg.style.transition = 'transform 0.3s'; // Add CSS transition property to make the image transition smooth
+    hImg.style.transform = 'scale(1.2)'; // zoom out the image by scaling it to 0.1 times its original size
+    
+});
 
-// let i = 0;
-// let images = [];
-// let time = 3000;
-
-// images[0] = 'img/homepic (2).png';
-// images[1] = 'img/homepic2.png';
-// images[3] = 'img/homepic3.png';
-
-// function changeImg(){
-//     document.querySelector('.h-img img').src = images[i];
-
-//     if(i < images.length - 1){
-//         i++;
-//     }
-//     else{
-//         i = 0;
-//     }
-
-//     setTimeout(changeImg, time);
-// }
-
-// window.onload = changeImg;
-
-age_tuple = ""
-
-age = int(input("Enter your age: "))
-
-age_tuple.append(age)
+hImg.addEventListener('transitionend', () => { // when the transition ends
+    hImg.style.transition = 'none'; // remove the transition property
+    hImg.style.transform = 'scale(1)'; // reset the image scale to its original size
+   
+});
